@@ -1,0 +1,17 @@
+header {
+    text-align: center;
+}
+
+#wrapper {
+   width: 100%;
+   text-align: center;
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+}
+
+footer {
+    text-align: center;
+}
