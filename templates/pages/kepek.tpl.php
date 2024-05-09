@@ -1,0 +1,1 @@
+<h1>Ez a Galéria</h1>
