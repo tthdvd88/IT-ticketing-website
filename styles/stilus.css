@@ -1,17 +1,77 @@
+body {
+    background-color: lemonchiffon;
+}
+
 header {
+    background-color: bisque;
     text-align: center;
+    width: 40%;
+    margin: auto;
 }
 
 #wrapper {
-   width: 100%;
+    color: black;
+    background-color: burlywood;
+   width: 80%;
+   margin: auto;
+   padding: 20px;
    text-align: center;
 }
 
+ul {
+    color: white;
+}
+
 li {
+    background-color: antiquewhite;
+    border: 2px solid bisque;
     list-style-type: none;
     display: inline;
+    padding: 5px;
+}
+
+#content {
+    width: 100%;
+    background-color: antiquewhite;
 }
 
 footer {
+    width: 80%;
+    background-color: bisque;
     text-align: center;
+    margin: auto;
 }
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#form {
+    width: 40%;
+    margin: auto;
+    color: black;
+    text-align: left;
+}
+
+textarea {
+    width: 100%;
+}
+
+#loginform {
+    padding: 20px;
+}
+
+#fieldform
+{
+    padding: 10px;
+}
+
+#ticket {
+    padding: 20px;
+}
+
+.error {
+    color: red;
+}
+
