@@ -1,10 +1,9 @@
-
 <?php 
 $ablakcim = array('cim'=>'AT IT Services');
 
 $fejlec = array('kepforras'=>'logo.png','kepalt'=>'logo','cim'=>'IT Services Helpdesk Portal');
 
-$lablec = array('copyright'=>'Copyright '.date("Y").'.','owner'=>' - AT IT Services');
+$lablec = array('copyright'=>'Copyright '.date("Y").'.','owner'=>'- IT Services');
 
 $oldalak = array(
     '/' =>array('fajl' => 'fooldal', 'szoveg' => 'Főoldal', 'menun' => array(1,1)),
@@ -21,3 +20,4 @@ $oldalak = array(
 $hiba_oldal = array('fajl'=>'404','szoveg'=>'A keresett oldal nem található!','menun' => array(1,1));
 
 ?>
+

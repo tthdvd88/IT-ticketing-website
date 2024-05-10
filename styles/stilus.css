@@ -1,5 +1,6 @@
 body {
     background-color: lemonchiffon;
+    color: black;
 }
 
 header {
@@ -19,7 +20,7 @@ header {
 }
 
 ul {
-    color: white;
+    color: black;
 }
 
 li {
@@ -73,5 +74,46 @@ textarea {
 
 .error {
     color: red;
+}
+
+/* Fooldal.tpl.php*/
+
+#fooldal {
+    padding: 20px;
+}
+
+#googlemaps {
+    width: 60%;
+    margin: auto;
+}
+
+#youtube {
+    width: 60%;
+    margin: auto;
+}
+
+#video {
+    width: 60%;
+    margin: auto;
+}
+
+/* Kepek.tpl.php */
+
+#kepek {
+    padding: 20px;
+}
+
+div#galeria {
+    margin: 0 auto; 
+    width: 620px;
+}
+
+div.kep { 
+    display: inline-block; 
+}
+
+div.kep img { 
+    width: 200px; 
+    height: 200px;
 }
 
