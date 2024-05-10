@@ -92,6 +92,11 @@ textarea {
     margin: auto;
 }
 
+#video {
+    width: 60%;
+    margin: auto;
+}
+
 /* Kepek.tpl.php */
 
 #kepek {
@@ -111,3 +116,4 @@ div.kep img {
     width: 200px; 
     height: 200px;
 }
+

@@ -1,12 +1,12 @@
 
-
+<!-- változó deklarálások -->
 <?php
     $MAPPA = './images/';
     $TIPUSOK = array ('.jpg', '.png');
     $MEDIATIPUSOK = array('image/jpeg', 'image/png');
     $MAXMERET = 500*1024;
 ?>
-
+<!-- tömb a képek megjelenítéséhez -->
 <?php
 $kepek = array();
     $olvaso = opendir($MAPPA);
@@ -27,7 +27,6 @@ $kepek = array();
     <div id="galeria">
     <h2>Referencia munkák</h2>
     <?php
-    // arsort($kepek);
     foreach($kepek as $fajl => $datum)
     {
     ?>
@@ -41,8 +40,15 @@ $kepek = array();
     ?>
     </div>
 
+    <!-- Login állapot esetén képfeltöltés betöltése -->
     <?php
-    include('kepfeltolt.tpl.php');
+        if(isset($_SESSION['login']) && $oldal['menun'][1]) {
+    
+            include('kepfeltolt.tpl.php');
+    
+        }
+
+    
     ?>
 </div>
 
