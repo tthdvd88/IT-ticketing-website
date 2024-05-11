@@ -4,16 +4,25 @@ function ellenoriz(){
 
 
 //változó deklarálás
-    var sender = document.getElementById("sender");
+    var lastname = document.getElementById("lastname");
+    var firstname = document.getElementById("firstname");
     var message = document.getElementById("message");
     var pcnumber = document.getElementById("pcnumber");
 
 //feltétel vizsgálat
-    if(sender){
-        if(sender.value.length<5) {
+    if(lastname){
+        if(lastname.value.length<5) {
             rendben=false;
-            sender.style.background='#f99';
-            fokusz = sender;
+            lastname.style.background='#f99';
+            fokusz = lastname;
+        }
+    }
+
+    if(firstname){
+        if(firstname.value.length<5) {
+            rendben=false;
+            firstname.style.background='#f99';
+            fokusz = firstname;
         }
     }
 

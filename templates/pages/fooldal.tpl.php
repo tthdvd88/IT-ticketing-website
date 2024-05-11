@@ -8,7 +8,7 @@ src="https://www.youtube.com/embed/tgbNymZ7vqY">
 </div>
 <br>
 <div id="video">
-    <h2>Rohan az idő az IT-ban</h2>
+    <h3>Rohan az idő az IT-ban</h3>
     <video width="640" height="480" controls>
         <source src="./videos/clock.mp4" type="video/mp4">
         Your browser not support this 

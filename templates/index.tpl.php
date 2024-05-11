@@ -12,7 +12,7 @@
 <body>
 	<header>
 		<h1><?= $fejlec['cim'] ?></h1>
-		<?php if(isset($_SESSION['login'])) { ?>Bejelentkezve: <strong><?= $_SESSION['csn']." ".$_SESSION['un']." (".$_SESSION['login'].")" ?></strong><?php } ?>
+		<?php if(isset($_SESSION['login'])) { ?>Bejelentkezve: <strong><?= $_SESSION['fn']." ".$_SESSION['ln']." (".$_SESSION['login'].")" ?></strong><?php } ?>
 	</header>
     <div id="wrapper">
         <div id="menu">
