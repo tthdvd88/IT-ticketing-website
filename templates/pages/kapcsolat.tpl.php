@@ -1,4 +1,64 @@
-<form action = "?oldal=kapcsolat" method = "post" onsubmit="return ellenoriz();">
+<!--   JS nem fut le a Nethelyre való feltöltés után ezért ki lett kommentelve az egész ellenőrzés
+
+<script>
+
+function ellenoriz(){
+    var rendben = true;
+
+
+//változó deklarálás
+    var lastname = document.getElementById("lastname");
+    var firstname = document.getElementById("firstname");
+    var message = document.getElementById("message");
+    var pcnumber = document.getElementById("pcnumber");
+
+//feltétel vizsgálat
+    if(lastname){
+        if(lastname.value.length<5) {
+            rendben=false;
+            lastname.style.background='#f99';
+        }
+    }
+
+    if(firstname){
+        if(firstname.value.length<5) {
+            rendben=false;
+            firstname.style.background='#f99';
+        }
+    }
+
+    if(pcnumber) {
+        var checkPattern = /^[A-Z]{2}\d{4}$/; 
+        if(!checkPattern.test(pcnumber.value)) {
+            rendben=false;
+            pcnumber.style.background='#f99';
+        }
+    }
+
+    if(message) {
+        if(message.value.length<30) {
+            rendben=false;
+            message.style.background='#f99';
+        }
+    }
+
+
+
+
+//submit előtti ellenőrzés
+var kuld = document.getElementById("send");
+if (kuld) {
+
+}
+return rendben;
+
+}
+
+</script>
+
+-->
+
+<form action = "?oldal=kapcsolat" method = "post"> <!-- onsubmit="return ellenoriz();"> -->
 <div id="fieldform">
 <fieldset>
         <legend>Kapcsolat</legend>
@@ -35,7 +95,7 @@
                     <td><textarea name="message" id="message" rows="10" placeholder="Kérjük adja meg a hiba rövid leírását (min 30 max 100 karakter)"></textarea><br><br></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="Üzenet küldése" id="send"></td>
+                    <td><input type="submit" value="Üzenet küldése"></td> <!-- id="send" -->
                 </tr>
         </table>
         </div>
@@ -43,7 +103,7 @@
     <?php if(isset($uzenet)) { ?>
             <h1><?= $uzenet ?></h1>
             <?php if($ujra) { ?>
-                <a href="index.php?oldal=belepes">Próbálja újra!</a>
+                <a href="?oldal=kapcsolat">Próbálja újra!</a>
             <?php } ?>
         <?php } ?>
 </div>

@@ -1,6 +1,5 @@
 function ellenoriz(){
     var rendben = true;
-    var fokusz = null;
 
 
 //változó deklarálás
@@ -14,7 +13,6 @@ function ellenoriz(){
         if(lastname.value.length<5) {
             rendben=false;
             lastname.style.background='#f99';
-            fokusz = lastname;
         }
     }
 
@@ -22,7 +20,6 @@ function ellenoriz(){
         if(firstname.value.length<5) {
             rendben=false;
             firstname.style.background='#f99';
-            fokusz = firstname;
         }
     }
 
@@ -31,7 +28,6 @@ function ellenoriz(){
         if(!checkPattern.test(pcnumber.value)) {
             rendben=false;
             pcnumber.style.background='#f99';
-            fokusz = pcnumber;
         }
     }
 
@@ -39,14 +35,9 @@ function ellenoriz(){
         if(message.value.length<30) {
             rendben=false;
             message.style.background='#f99';
-            fokusz = message;
         }
     }
 
-    //fokusz
-    if (fokusz) {
-        fokusz.focus();
-    }
 
 
 //submit előtti ellenőrzés

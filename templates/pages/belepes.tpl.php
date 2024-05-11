@@ -1,5 +1,6 @@
 <?php if(isset($row)) { ?>
     <?php if($row) { ?>
+	<br><br>
         <h1>Bejelentkezett:</h1>
         Azonosító: <strong><?= $row['id'] ?></strong><br><br>
         Név: <strong><?= $row['firstname']." ".$row['lastname'] ?></strong>
