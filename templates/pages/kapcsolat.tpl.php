@@ -1,4 +1,4 @@
-<form action = "?oldal=hibajegy" method = "post" onsubmit="return ellenoriz();">
+<form action = "?oldal=kapcsolat" method = "post" onsubmit="return ellenoriz();">
 <div id="fieldform">
 <fieldset>
         <legend>Kapcsolat</legend>
@@ -6,12 +6,16 @@
         <div id="form">
             <table cellspacing="0" cellpadding="4">
                 <tr>
-                    <td><label>Név </label></td>
-                    <td><input type="text" name="sender" id="sender"></td>
+                    <td><label>Vezetéknév </label></td>
+                    <td><input type="text" name="lastname" id="lastname"></td>
+                </tr>
+                <tr>
+                    <td><label>Keresztnév </label></td>
+                    <td><input type="text" name="firstname" id="firstname"></td>
                 </tr>
                 <tr>
                     <td><label>Felhasználónév </label></td>
-                    <td><input type="text" name="formusername" id="formusername" placeholder="opcionális"></td>
+                    <td><input type="text" name="username" id="username" placeholder="opcionális"></td>
                 </tr>
                 <tr>
                     <td><label>Szakterület </label></td>
@@ -28,7 +32,7 @@
                 </tr>
                 <tr>
                     <td><label>Üzenet </label></td>
-                    <td><textarea name="message" id="message" rows="10" placeholder="Kérjük adja meg a hiba rövid leírását (min 30 karakter)"></textarea><br><br></td>
+                    <td><textarea name="message" id="message" rows="10" placeholder="Kérjük adja meg a hiba rövid leírását (min 30 max 100 karakter)"></textarea><br><br></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="Üzenet küldése" id="send"></td>
@@ -36,4 +40,10 @@
         </table>
         </div>
     </fieldset>
+    <?php if(isset($uzenet)) { ?>
+            <h1><?= $uzenet ?></h1>
+            <?php if($ujra) { ?>
+                <a href="index.php?oldal=belepes">Próbálja újra!</a>
+            <?php } ?>
+        <?php } ?>
 </div>
