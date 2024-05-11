@@ -1,21 +1,64 @@
-<?php 
-    try {
-        $dbh = new PDO('mysql:host=localhost;dbname=helpdesk', 'root', '',
-        array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-        $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
-        $sqlSelect = "select ticketnumber from tickets";
-        $sth = $dbh->prepare($sqlSelect);
-        $row = $sth->fetch(PDO::FETCH_ASSOC);
-    }
-    catch (PDOException $e){
-        echo "Hiba: ".$e->getMessage();
-    }
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div#table {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+}
+
+div#table th {
+    border: solid 1px black;
+    height: 30px;
+}
+
+div#table td {
+    border: solid 1px black;
+    height: 30px;
+}
+</style>
+    </head>
+    <body>
+<?php
+
+// Adatbázis kapcsolat
+
+try {
+    $dbh = new PDO('mysql:host=localhost;dbname=itservhelpdesk', 'itservhelpdesk', 'Aik1ido!59');     
+} catch (PDOException $e) {
+    die("Nem lehet csatlakozni az adatbázishoz". $e->getMessage());
+}
+// SQL lekérdezés
+
+$stmt = $dbh->query('SELECT * FROM tickets ORDER BY created DESC');
+$rows = $stmt->fetchAll();
 
 ?>
-
-<?php if(isset($row)) { ?>
- <?php if($row) { ?>
-    <h1>Hibajegy adatok<h2>
-    Hibajegy szám: <?= $row['ticketnumber'] ?>
-<?php } ?>
-<?php } ?>
+<div id="table">
+    <table style="border: solid 1px black; border-collapse: collapse;">
+            <tr>
+                <th>Hibajegy száma</th>
+                <th>Vezetéknév</th>
+                <th>Keresztnév</th>
+                <th>Időpont</th>
+                <th>Szakterület</th>
+                <th>PC szám</th>
+                <th>Hibaleírás</th>
+            </tr>
+        <?php foreach ($rows as $row): ?>
+            <tr>
+                <td><?=$row['ticketnumber'];?></td>
+                <td><?=$row['lastname'];?></td>
+                <td><?=$row['firstname'];?></td>
+                <td><?=$row['created'];?></td>
+                <td><?=$row['department'];?></td>
+                <td><?=$row['pcnumber'];?></td>
+                <td><?=$row['message'];?></td>
+            <tr>
+            <?php endforeach; ?>
+                
+    </table>
+        </div>
+        </body>
+</html>

@@ -2,7 +2,7 @@
    
    if(isset($_POST['username']) || isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['department']) && isset($_POST['pcnumber']) && isset($_POST['message'])) {
    try {
-        $dbh = new PDO('mysql:host=localhost;dbname=helpdesk', 'root', '',
+        $dbh = new PDO('mysql:host=localhost;dbname=itservhelpdesk', 'itservhelpdesk', 'Aik1ido!59',
         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
         $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
     

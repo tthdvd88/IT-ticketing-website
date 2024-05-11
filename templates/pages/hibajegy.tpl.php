@@ -1,43 +1,61 @@
-<div id="ticket">
-    <fieldset>
-        <legend>Hibajegy adatok</legend>
-        <br>
+<div id="hibajegy">
+    <br>
+    <br>
+    <h3>Hibajegy adatok:</h3>
+<br>
+
 <?php
-if(isset($_POST['sender']) && isset($_POST['pcnumber']) && isset($_POST['message'])) 
-{
-$namere = '/^[A-Za-z]\+\" "+^[A-Za-z]/';
-if(!preg_match($namere,$_POST['sender'])) {
-    echo "<strong>Név: </strong>";
-    echo "A megadott név nem érvényes!";
-} else {
-    echo "<strong>Név: </strong>";
-    echo $_POST['sender'];
+
+// Adatbázis kapcsolat
+
+try {
+    $dbh = new PDO('mysql:host=localhost;dbname=itservhelpdesk', 'itservhelpdesk', 'Aik1ido!59');     
+} catch (PDOException $e) {
+    die("Nem lehet csatlakozni az adatbázishoz". $e->getMessage());
+}
+// SQL lekérdezés
+
+$stmt = $dbh->query('SELECT * FROM tickets WHERE ticketnumber IS NOT NULL ORDER BY ticketnumber DESC LIMIT 1');
+$rows = $stmt->fetchAll();
+
+// Eredmény kiírtaás (mindig a legutóbbi leadott ticket)
+
+foreach ($rows as $row) {
+    echo "<strong>Hibajegy száma: </strong>";
+    echo $row['ticketnumber'];
+    echo "<br>";
+    echo "<br>";
+    if($row['username']==0) {
+        echo "<strong>Név: </strong>Vendég felhasználó";
+    }
+    else {
+    echo "<strong>Felhasználónév: </strong>";
+    echo $row['username'];
+    echo "<br>";
+    echo "<br>";
+    echo "<strong>Vezeték név: </strong>";
+    echo $row['lastname'];
+    echo "<br>";
+    echo "<br>";
+    echo "<strong>Keresztnév: </strong>";
+    echo $row['firstname'];
+    }
+    echo "<br>";
+    echo "<br>";
+    echo "<strong>Szakterület: </strong>";
+    echo $row['department'];
+    echo "<br>";
+    echo "<br>";
+    echo "<strong>PC szám: </strong>";
+    echo $row['pcnumber'];
+    echo "<br>";
+    echo "<br>";
+    echo "<strong>Hibaleírás: </strong>";
+    echo $row['message'];
+    echo "<br>";
+    echo "<br>";
 }
 
-echo "<br>";
-echo "<br>";
-echo "<strong>Felhasználónév: </strong>";
-echo $_POST['formusername'];
-echo "<br>";
-echo "<br>";
-echo "<strong>Szakterület: </strong>";
-echo $_POST['department'];
-echo "<br>";
-echo "<br>";
-echo "<strong>Gépszám: </strong>";
-echo $_POST['pcnumber'];
-echo "<br>";
-echo "<br>";
-echo "<strong>Hiba leírás: </strong>";
-echo $_POST['message'];
-echo "<br>";
-echo "<br>";
-
-
-}
-else {
-    echo "Hibajegy előzmények megjelenítése nem lehetséges regisztáció nélkül. Amennyiben szeretné látni korábbi hibajegyeit, kérjük regisztráljon";
-}
 ?>
-</fieldset>
 </div>
+
